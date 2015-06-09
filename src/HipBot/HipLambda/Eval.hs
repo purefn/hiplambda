@@ -9,6 +9,7 @@ module HipBot.HipLambda.Eval where
 import Control.Applicative
 import Control.Lens
 import Control.Monad.IO.Class
+import Data.Foldable
 import Data.Maybe
 import Data.Monoid
 import Data.Text (Text)
