@@ -10,11 +10,12 @@ module HipBot.HipLambda.Pointfree
 import Control.Monad.Reader
 import Data.Foldable
 import Data.List (isPrefixOf, isSuffixOf)
+import Data.Monoid
 import Data.Text (Text)
 import qualified Data.Text as T
 import Lambdabot.Pointful (pointful)
 import Pointfree (pointfree')
-import Prelude
+import Prelude hiding (any)
 import Webcrank.Wai
 
 import HipBot.Webhooks

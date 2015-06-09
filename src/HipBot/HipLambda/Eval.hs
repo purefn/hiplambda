@@ -14,7 +14,7 @@ import Data.Maybe
 import Data.Monoid
 import Data.Text (Text)
 import qualified Data.Text as T
-import Prelude
+import Prelude hiding (foldl1)
 import System.Environment
 import System.Exit
 import System.Process.Text
