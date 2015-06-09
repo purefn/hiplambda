@@ -1,0 +1,53 @@
+name:                hiplambda
+version:             0.1.0.0
+synopsis:            Haskell bot for HipChat
+homepage:            https://github.com/purefn/hiplambda
+license:             BSD3
+license-file:        LICENSE
+author:              Richard Wallace
+maintainer:          rwallace@atlassian.com
+category:            Network
+build-type:          Simple
+cabal-version:       >=1.10
+data-files:          Imports.hs
+
+source-repository   head
+  type:             git
+  location:         https://github.com/purefn/hiplambda.git
+
+executable hiplambda
+  hs-source-dirs:      src
+
+  main-is:             HipBot/HipLambda.hs
+
+  other-modules:       HipBot.HipLambda.Descriptor
+                     , HipBot.HipLambda.Eval
+                     , HipBot.HipLambda.Pointfree
+
+  ghc-options:         -Wall
+   
+  default-language:    Haskell2010
+
+  build-depends:       base >=4.7 && <4.9
+                     , aeson
+                     , bytestring
+                     , hipbot
+                     , lens
+                     , mtl
+                     , mueval
+                     , pointfree >=1.1 && <2
+                     , pointful >=1.0.6 && <2
+                     , postgresql-simple
+                     , process-extras
+                     , resource-pool
+                     , safe
+                     , text
+                     , transformers
+                     , utf8-string
+                     , wai
+                     , wai-extra
+                     , wai-lens
+                     , warp
+                     , webcrank
+                     , webcrank-wai
+

@@ -1,0 +1,6 @@
+:set -isrc -idist/build/autogen
+:set -Wall
+:set -XOverloadedStrings
+:l HipBot.Naggy
+:m + HipBot.Naggy
+:set prompt ">> "
