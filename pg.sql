@@ -1,14 +1,9 @@
-CREATE TYPE weekday AS ENUM ('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
-
-CREATE TABLE naggy_reminders (
-  id                       char(36) NOT NULL,
-  oauthId                  char(36) NOT NULL REFERENCES hipbot (oauthId),
+CREATE TABLE hipbot (
+  oauthId                  char(36) PRIMARY KEY,
+  capabilitiesUrl          varchar(255) NOT NULL,
   roomId                   integer NOT NULL,
-  time                     time NOT NULL,
-  timezone                 varchar(25) NOT NULL,
-  every                    integer DEFAULT 1,
-  weekdays                 weekday[] NOT NULL,
-  mtype                    char(4) NOT NULL,
-  message                  text NOT NULL,
-  PRIMARY KEY(oauthId,id)
+  groupId                  integer NOT NULL,
+  oauthSecret              char(40) NOT NULL,
+  accessToken              char(40) NOT NULL,
+  accessTokenExpires       timestamptz NOT NULL
 );
