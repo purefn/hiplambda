@@ -22,6 +22,7 @@ executable hiplambda
 
   other-modules:       HipBot.HipLambda.Descriptor
                      , HipBot.HipLambda.Eval
+                     , HipBot.HipLambda.Hoogle
                      , HipBot.HipLambda.Pointfree
 
   ghc-options:         -Wall
@@ -32,6 +33,7 @@ executable hiplambda
                      , aeson
                      , bytestring
                      , hipbot
+                     , hoogle
                      , lens
                      , mtl
                      , mueval

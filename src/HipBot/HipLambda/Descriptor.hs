@@ -28,6 +28,8 @@ descriptor baseUri =
             & pattern ?~ "^:(t|type)(\\s|$).*"
         , webhook (baseUri `appendPath` ["eval"]) RoomMessage
             & pattern ?~ "^(>|/run)(\\s|$).*"
+        , webhook (baseUri `appendPath` ["hoogle"]) RoomMessage
+            & pattern ?~ "^/hoogle(\\s|$).*"
         ])
     & vendor ?~ Vendor "https://atlassian.com" "Atlassian Labs"
 

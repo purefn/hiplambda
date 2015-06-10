@@ -23,6 +23,7 @@ import HipBot.API as HipBot
 
 import HipBot.HipLambda.Descriptor
 import HipBot.HipLambda.Eval
+import HipBot.HipLambda.Hoogle
 import HipBot.HipLambda.Pointfree
 
 main :: IO ()
@@ -35,9 +36,10 @@ main = do
     [ hipBotResources bot
     -- , "check" ==> checkResource
     -- , "djinn" ==> djinnResource
+    , "eval" ==> evalResource
+    , "hoogle" ==> hoogleResource
     , "pointfree" ==> pointfreeResource
     , "pointful" ==> pointfulResource
-    , "eval" ==> evalResource
     -- , "haddock" ==> haddockResource
     ]
 
