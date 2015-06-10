@@ -1,0 +1,15 @@
+{ "name": "HipLambda"
+, "description": "Lambdabot inspired add-on for Haskell"
+, "logo": "https://halcyon.sh/logo.svg"
+, "repository": "https://github.com/purefn/hiplambda"
+, "env": 
+    { "BUILDPACK_URL": 
+      { "description": "Heroku buildpack for deploying Haskell apps"
+      , "value": "https://github.com/mietek/haskell-on-heroku"
+      }
+    , "HALCYON_GHC_VERSION": "7.10.1"
+    , "HALCYON_CABAL_VERSION": "1.22.4.0"
+    , "HALCYON_KEEP_DEPENDENCIES": "1"
+    , "MUEVAL_TIMEOUT": "8"
+    }
+}
