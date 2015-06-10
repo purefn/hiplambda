@@ -4,12 +4,29 @@
 , "repository": "https://github.com/purefn/hiplambda"
 , "env": 
     { "BUILDPACK_URL": 
-      { "description": "Heroku buildpack for deploying Haskell apps"
-      , "value": "https://github.com/mietek/haskell-on-heroku"
-      }
+        { "description": "Heroku buildpack for deploying Haskell apps"
+        , "value": "https://github.com/mietek/haskell-on-heroku"
+        }
+    , "HALCYON_S3_BUCKET": 
+        { "description": "Name of the Amazon S3 bucket in which Halcyon stores private archives and constraints files."
+        , "value": ""
+        , "required": true
+        }
+    , "HALCYON_AWS_ACCESS_KEY_ID":
+        { "description": "Amazon Web Services access key ID, used to authenticate S3 requests."
+        , "value": ""
+        , "required": true
+        }
+    , "HALCYON_AWS_SECRET_ACCESS_KEY":
+        { "description": "Amazon Web Services secret access key, used to authenticate S3 requests."
+        , "value": ""
+        , "required": true
+        }
     , "HALCYON_GHC_VERSION": "7.10.1"
     , "HALCYON_CABAL_VERSION": "1.22.4.0"
     , "HALCYON_KEEP_DEPENDENCIES": "1"
     , "MUEVAL_TIMEOUT": "8"
+    , "BASE_URI": "https://hiplambda.herokupapp.com/"
     }
+, "addons": [ "heroku-postgresql:dev" ]
 }
