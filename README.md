@@ -2,6 +2,7 @@
 
 A HipChat bot in the spirit of Lambdabot providing useful commands use as
 
+* Haskell evaluation: `> take 5 [1..] ==> [1,2,3,4,5]`
 * Pointfree refactoring: `/pf \xs n -> take n xs ==> flip take`
 * Asking for a functions type, like GHCi's `:t`, using either that or `:type`
 * More to come
