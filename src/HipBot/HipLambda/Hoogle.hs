@@ -1,3 +1,5 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 module HipBot.HipLambda.Hoogle where
 
 import Control.Lens
@@ -20,5 +22,6 @@ hoogleResource = roomMessageWebhookResource "hoogle" $ \_ ->
 
 hoogle :: Text -> IO Text
 hoogle e = do
-  (status, out, err) <- readProcessWithExitCode "hoogle" [] e
-  return . mconcat $ [ T.pack . show $ status, out, err ]
+  (status, out, err) <- readProcessWithExitCode "hoogle" [T.unpack e] ""
+  return . mconcat $ [ T.pack . show $ status, "\n", out, "\n", err ]
+
