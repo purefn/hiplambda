@@ -10,5 +10,5 @@ A HipChat bot in the spirit of Lambdabot providing useful commands use as
 
 or
 
-[Deploy your own on Heroku](https://heroku.com/deploy?template=https://github.com/purefun/hiplambda)
+[Deploy your own on Heroku](https://heroku.com/deploy?template=https://github.com/purefn/hiplambda)
 
