@@ -26,7 +26,11 @@
     , "HALCYON_CABAL_VERSION": "1.22.4.0"
     , "HALCYON_KEEP_DEPENDENCIES": "1"
     , "MUEVAL_TIMEOUT": "8"
-    , "BASE_URI": "https://hiplambda.herokupapp.com/"
+    , "BASE_URI": 
+        { "description": "This should be https://{app-name}.herokuapp.com/"
+        , "required": true
+        , "value": "https://hiplambda.herokupapp.com/"
+        }
     }
 , "addons": [ "heroku-postgresql:dev" ]
 }
