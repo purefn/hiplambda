@@ -26,6 +26,8 @@ descriptor baseUri =
             & pattern ?~ "^/(unpf|pointful|pointy)(\\s|$).*"
         , webhook (baseUri `appendPath` ["eval"]) RoomMessage
             & pattern ?~ "^:(t|type)(\\s|$).*"
+        , webhook (baseUri `appendPath` ["eval"]) RoomMessage
+            & pattern ?~ "^(>|/run)(\\s|$).*"
         ])
     & vendor ?~ Vendor "https://atlassian.com" "Atlassian Labs"
 
