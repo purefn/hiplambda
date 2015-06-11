@@ -45,7 +45,7 @@ executable hiplambda
                      , safe
                      , text
                      , transformers
-                     , utf8-string
+                     , utf8-string < 1
                      , wai
                      , wai-extra
                      , wai-lens
