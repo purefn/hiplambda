@@ -2,6 +2,16 @@
 
 source "${HALCYON_DIR}/src.sh"
 
+function allHoogleDbs {
+  for p in $*
+  do
+    echo -n " $(findHoogleDbs $p)"
+  done
+}
+
+function findHoogleDbs {
+  find $1 -name '*.hoo'
+}
 
 sandbox_post_build_hook () {
   expect_vars HALCYON_BASE
@@ -15,7 +25,10 @@ sandbox_post_build_hook () {
 
   copy_file "${source_dir}/.halcyon/sandbox-post-build/mueval" \
     "${HALCYON_BASE}/sandbox/bin/mueval" || return 1
-}
 
+  hoogle data all -v
+  dbs=$(allHoogleDbs ${HALCYON_BASE}/sandbox)
+  echo Found $dbs
+}
 
 sandbox_post_build_hook "$@"

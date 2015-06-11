@@ -23,7 +23,6 @@
         , "required": true
         }
     , "HALCYON_GHC_VERSION": "7.10.1"
-    , "HALCYON_CABAL_VERSION": "1.22.4.0"
     , "HALCYON_KEEP_DEPENDENCIES": "1"
     , "MUEVAL_TIMEOUT": "8"
     , "BASE_URI": 

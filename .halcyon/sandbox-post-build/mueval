@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 halcyon_mueval () {
   local ghc_path sandbox_path
   ghc_path=$( find "${HALCYON_BASE}/ghc" -name 'package.conf.d' 2>'/dev/null' ) || true
@@ -9,6 +8,5 @@ halcyon_mueval () {
   GHC_PACKAGE_PATH="${ghc_path}:${sandbox_path}" \
     mueval.original "$@"
 }
-
 
 halcyon_mueval "$@"
