@@ -1,0 +1,98 @@
+diff --git a/network.nix b/network.nix
+index c29421f..5aa511b 100644
+--- a/network.nix
++++ b/network.nix
+@@ -1,3 +1,5 @@
++{ baseurl, rds ? null }:
++
+ {
+   # Name of our deployment
+   network.description = "HipLambda";
+@@ -12,6 +14,26 @@
+     { config, pkgs, ... }:
+     with (import <nixpkgs/pkgs/development/haskell-modules/lib.nix> { inherit pkgs; });
+     let
++      database = if rds then {
++        url = "postgresql://localhost/hiplambda";
++        requirements = [ "postgresql.service" ];
++        postgresql = {
++          enable = true;
++          package = pkgs.postgresql;
++          enableTCPIP = true;
++          authentication = ''
++            local all all                trust
++            host  all all 127.0.0.1/32   trust
++            host  all all ::1/128        trust
++            host  all all 192.168.1.0/24 trust
++          '';
++        };
++      } else {
++        url = rds;
++        requirements = [];
++        postgresql = { enable = false; };
++      };
++
+       # A custom haskell package set with hiplambda
+       hpkgs = pkgs.haskell.packages.ghc7101.override {
+         overrides = self: super: {
+@@ -28,22 +50,19 @@
+         };
+       };
+       ghc = hpkgs.ghcWithPackages(haskellPackages: with haskellPackages;
+-        let
+-          extras = import ./packages.nix { inherit haskellPackages; };
+-        in
+-         [ mueval hiplambda ] ++ extras
++        let extras = import ./packages.nix { inherit haskellPackages; };
++        in [ mueval hiplambda ] ++ extras
+       );
+       hoogle = withHoogle ghc;
+     in {
+       environment = {
+-        /* systemPackages = [ ghc ]; */
+         systemPackages = [ hoogle ghc pkgs.parted ];
+         variables.NIX_GHC_LIBDIR = "${ghc}/lib/ghc-7.10.1";
+       };
+ 
+       networking.firewall = {
+         enable = true;
+-        allowedTCPPorts = [ 80 8080 22 ];
++        allowedTCPPorts = [ 80 22 ];
+         allowPing = true;
+       };
+ 
+@@ -85,17 +104,7 @@
+           '';
+         };
+ 
+-        postgresql = {
+-          enable = true;
+-          package = pkgs.postgresql;
+-          enableTCPIP = true;
+-          authentication = ''
+-            local all all                trust
+-            host  all all 127.0.0.1/32   trust
+-            host  all all ::1/128        trust
+-            host  all all 192.168.1.0/24 trust
+-          '';
+-        };
++        postgresql = database.postgresql;
+       };
+ 
+       # Run hiplambda as a systemd service
+@@ -105,12 +114,12 @@
+         description = "HipLambda";
+         wantedBy = [ "multi-user.target" ];
+         after = [ "network.target" ];
+-        requires = [ "postgresql.service" ];
++        requires = database.requirements;
+         environment = {
+           PORT = "8080";
+-          BASE_URI = "http://ec2-52-8-23-225.us-west-1.compute.amazonaws.com/";
++          BASE_URI = baseurl;
+           MUEVAL_TIMEOUT = "8";
+-          DATABASE_URL = "postgresql://localhost/hiplambda";
++          DATABASE_URL = database.url;
+         };
+         serviceConfig = {
+           ExecStart = "${ghc}/bin/hiplambda";

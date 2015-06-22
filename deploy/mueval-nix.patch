@@ -1,0 +1,39 @@
+diff --git a/Mueval/Context.hs b/Mueval/Context.hs
+index 548514c..88e8177 100644
+--- a/Mueval/Context.hs
++++ b/Mueval/Context.hs
+@@ -30,7 +30,11 @@ defaultModules = ["Prelude",
+                   "Control.Arrow",
+                   "Control.Monad",
+                   "Control.Monad.Cont",
++#if !MIN_VERSION_base(4,7,0)
+                   "Control.Monad.Error",
++#else
++                  "Control.Monad.Except",
++#endif
+                   "Control.Monad.Fix",
+                   "Control.Monad.Identity",
+ #if !MIN_VERSION_base(4,7,0)
+diff --git a/Mueval/Interpreter.hs b/Mueval/Interpreter.hs
+index 2522fd7..230db2f 100644
+--- a/Mueval/Interpreter.hs
++++ b/Mueval/Interpreter.hs
+@@ -10,6 +10,7 @@ import           Control.Monad.Writer (Any(..),runWriterT,tell)
+ import           Data.Char (isDigit)
+ 
+ import           System.Directory
++import           System.Environment (lookupEnv)
+ 
+ import           System.Exit (exitFailure)
+ import           System.FilePath.Posix (takeBaseName)
+@@ -51,6 +52,10 @@ interpreter Options { extensions = exts, namedExtensions = nexts,
+                                   -- Explicitly adding ImplicitPrelude because of
+                                   -- http://darcsden.com/jcpetruzza/hint/issue/1
+                                   unless (null lexts) $ set [languageExtensions := (UnknownExtension "ImplicitPrelude" : lexts)]
++                                  pkgs' <- liftIO $ lookupEnv "NIX_GHC_LIBDIR"
++                                  case pkgs' of
++                                    Just pkgs -> unsafeSetGhcOption ("-package-db " ++ pkgs ++ "/package.conf.d")
++                                    Nothing -> return ()
+                                   when trust $ do
+                                     unsafeSetGhcOption "-fpackage-trust"
+                                     forM_ (trustPkgs >>= words) $ \pkg ->
