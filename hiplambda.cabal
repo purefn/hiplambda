@@ -24,6 +24,7 @@ executable hiplambda
                      , HipBot.HipLambda.Eval
                      , HipBot.HipLambda.Hoogle
                      , HipBot.HipLambda.Pointfree
+                     , HipBot.HipLambda.Type
 
   ghc-options:         -Wall
    
@@ -32,6 +33,7 @@ executable hiplambda
   build-depends:       base >=4.7 && <4.9
                      , aeson
                      , bytestring
+                     , exceptions
                      , hipbot
                      , hoogle
                      , lens
@@ -45,7 +47,7 @@ executable hiplambda
                      , safe
                      , text
                      , transformers
-                     , utf8-string < 1
+                     , utf8-string
                      , wai
                      , wai-extra
                      , wai-lens
