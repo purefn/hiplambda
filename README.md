@@ -7,9 +7,4 @@ A HipChat bot in the spirit of Lambdabot providing useful commands use as
 * Asking for a functions type, like GHCi's `:t`, using either that or `:type`
 * More to come
 
-[Add it to your room](https://hipchat.com/addons/install?url=https%3A%2F%2Fhiplambda.herokuapp.com%2F)
-
-or
-
-[Deploy your own on Heroku](https://heroku.com/deploy?template=https://github.com/purefn/hiplambda)
-
+[Add it to your room](https://hipchat.com/addons/install?url=https%3A%2F%2Fhiplambda.atlassian.com%2F)
