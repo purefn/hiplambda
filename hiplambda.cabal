@@ -35,7 +35,7 @@ executable hiplambda
                      , bytestring
                      , exceptions
                      , hipbot
-                     , hoogle
+                     , hoogle >= 4.2 && <5
                      , lens
                      , mtl
                      , mueval
