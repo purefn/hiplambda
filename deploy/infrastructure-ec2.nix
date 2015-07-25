@@ -1,5 +1,5 @@
 let
-  region = "us-west-1";
+  region = "us-east-1";
   accessKeyId = "hiplambda"; # symbolic name looked up in ~/.ec2-keys
 
   ec2 = { resources, ... }: {
@@ -11,6 +11,7 @@ let
         instanceType = "t2.micro";
         keyPair = resources.ec2KeyPairs.my-key-pair;
         securityGroups = [ "allow-ssh" "allow-http" ];
+        elasticIPv4 = "54.88.205.45";
       };
     };
   };

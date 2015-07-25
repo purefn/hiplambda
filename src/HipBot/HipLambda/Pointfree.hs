@@ -20,11 +20,11 @@ import Webcrank.Wai
 
 import HipBot.Webhooks
 
-pointfreeResource :: WaiResource IO
+pointfreeResource :: MonadIO m => WaiResource m
 pointfreeResource =
   simpleWebhookResource "pointfree" ["/pf", "/pointfree"] (massage pointfree')
 
-pointfulResource :: WaiResource IO
+pointfulResource :: MonadIO m => WaiResource m
 pointfulResource =
   simpleWebhookResource "pointful" ["/unpf", "/pointful"] (massage unpf)
 

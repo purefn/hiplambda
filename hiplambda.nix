@@ -6,7 +6,7 @@
 mkDerivation {
   pname = "hiplambda";
   version = "0.1.0.0";
-  src = builtins.filterSource (path: type: baseNameOf path != ".git" && baseNameOf path != "dist") ./.;
+  src = builtins.filterSource (path: type: baseNameOf path != ".git" && baseNameOf path != "dist" && baseNameOf path != "deploy") ./.;
   isLibrary = false;
   isExecutable = true;
   buildDepends = [

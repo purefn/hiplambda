@@ -26,6 +26,8 @@ import Webcrank.Wai
 import HipBot
 import HipBot.Webhooks
 
+import HipBot.HipLambda.Type
+
 import Paths_hiplambda
 
 data MuEvalRes = MuEvalRes
@@ -36,7 +38,7 @@ data MuEvalRes = MuEvalRes
 
 makeFields ''MuEvalRes
 
-evalResource :: WaiResource IO
+evalResource :: WaiResource HipLambda
 evalResource = roomMessageWebhookResource "eval" $ \_ ->
   views message (liftIO . traverse (fmap textNotification) . eval)
 
@@ -65,12 +67,12 @@ mueval typeOnly e = do
   importsfp <- getDataFileName "Imports.hs"
   let
     timeout = fromMaybe "1" $ lookup "MUEVAL_TIMEOUT" env
-    opts = mconcat
+    args = mconcat
       [ ["-i", "-t", timeout, "--expression", T.unpack e]
       , ["--no-imports", "-l", importsfp]
       , ["--type-only" | typeOnly]
       ]
-  (status,out,err) <- readProcessWithExitCode "mueval" opts ""
+  (status, out, err) <- readProcessWithExitCode "mueval" args ""
   case status of
     ExitSuccess ->
       case T.lines out of

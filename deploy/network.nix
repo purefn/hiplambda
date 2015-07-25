@@ -1,4 +1,4 @@
-{ baseurl }:
+{ baseurl, ssl ? null }:
 
 {
   # Name of our deployment
@@ -29,23 +29,23 @@
           hiplambda = hpkgs.callPackage ../hiplambda.nix {};
         };
       };
-      ghc = hpkgs.ghcWithPackages(haskellPackages: with haskellPackages;
-        let
-          extras = import ./packages.nix { inherit haskellPackages; };
-        in
-         [ mueval hiplambda ] ++ extras
+      hiplambda = hpkgs.hiplambda;
+      mueval = hpkgs.ghcWithPackages(haskellPackages:
+        [ haskellPackages.mueval ] ++ (import ./packages.nix { inherit haskellPackages; })
       );
-      hoogle = withHoogle ghc;
+      withHoogle = haskellEnv: with haskellEnv.haskellPackages;
+        import ./hoogle.nix {
+          inherit (pkgs) stdenv;
+          inherit hoogle rehoo ghc;
+          packages = haskellEnv.paths;
+        };
+      localHoogle = withHoogle(hpkgs.ghcWithPackages(haskellPackages:
+        import ./packages.nix { inherit haskellPackages; }
+      ));
     in {
-      environment = {
-        /* systemPackages = [ ghc ]; */
-        systemPackages = [ hoogle ghc pkgs.parted ];
-        variables.NIX_GHC_LIBDIR = "${ghc}/lib/ghc-7.10.1";
-      };
-
       networking.firewall = {
         enable = true;
-        allowedTCPPorts = [ 80 8080 22 ];
+        allowedTCPPorts = [ 80 443 22 ];
         allowPing = true;
       };
 
@@ -53,24 +53,9 @@
       services = {
         nginx = {
           enable = true;
-          config = ''
-            worker_processes  4;
-
-            events {
-              worker_connections  2048;
-              use epoll;
-            }
-
-            worker_rlimit_nofile 8192;
-
-            http { 
-              upstream hiplambda {
-                server 127.0.0.1:8080  max_fails=5 fail_timeout=60s;
-              }
-
-              server {
-                listen 80;
-
+          config = 
+            let 
+              location = ''
                 location / {
                   proxy_pass http://hiplambda;
                   proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
@@ -82,9 +67,53 @@
                   proxy_set_header        X-Real-IP       $remote_addr;
                   proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
                 }
+              '';
+              http = if ssl == null
+                then ''
+                  server {
+                    listen 80;
+
+                    ${location}
+                  }
+                  ''
+                else ''
+                  server {
+                    listen 80;
+                    return 301 https://$host$request_uri;  # enforce https
+                  }
+                  '';
+              https = if ssl == null 
+                then ""
+                else ''
+                    server {
+                      listen 443 ssl;
+
+                      ssl_certificate ${ssl.cert};
+                      ssl_certificate_key ${ssl.key};
+
+                      ${location}
+                    }
+                  '';
+            in ''
+              worker_processes  4;
+
+              events {
+                worker_connections  2048;
+                use epoll;
               }
-            }
-          '';
+
+              worker_rlimit_nofile 8192;
+
+              http {
+                upstream hiplambda {
+                  server 127.0.0.1:8080  max_fails=5 fail_timeout=60s;
+                }
+
+                ${http}
+
+                ${https}
+              }
+            '';
         };
 
         postgresql = {
@@ -113,9 +142,12 @@
           BASE_URI = baseurl;
           MUEVAL_TIMEOUT = "8";
           DATABASE_URL = "postgresql://localhost/hiplambda";
+          HOOGLE_DB = "${localHoogle}/share/hoogle/default.hoo";
+          NIX_GHC_LIBDIR = "${mueval}/lib/ghc-7.10.1";
         };
+        path = [ mueval ];
         serviceConfig = {
-          ExecStart = "${ghc}/bin/hiplambda";
+          ExecStart = "${hiplambda}/bin/hiplambda";
           # For security reasons we'll run this process as a special 'hiplambda' user
           User = "hiplambda";
           Restart = "always";
