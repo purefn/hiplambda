@@ -7,6 +7,7 @@ module HipBot.HipLambda.Hoogle where
 import Control.Lens
 import Control.Monad.Reader
 import Data.Maybe
+import Data.Monoid
 import Data.Text (Text)
 import qualified Data.Text as T
 import Hoogle
