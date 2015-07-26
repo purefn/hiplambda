@@ -45,13 +45,13 @@ evalResource = roomMessageWebhookResource "eval" $ \_ ->
 eval :: Text -> Maybe (IO Text)
 eval = runReader . runMaybeT $ exprType <|> evalExpr
 
-exprType :: MonadReader Text m => MaybeT m (IO Text)
+exprType :: (Functor m, MonadReader Text m) => MaybeT m (IO Text)
 exprType = getExpr [":type", ":t"] <&> \e ->
   mueval True e <&> \case
     Left err -> err
     Right res -> view etype res
 
-evalExpr :: MonadReader Text m => MaybeT m (IO Text)
+evalExpr :: (Functor m, MonadReader Text m) => MaybeT m (IO Text)
 evalExpr = getExpr [">", "/run"] <&> \e ->
   mueval False e <&> \case
     Left err -> err

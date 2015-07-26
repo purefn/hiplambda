@@ -1,6 +1,7 @@
 name:                hiplambda
 version:             0.1.0.0
 synopsis:            Haskell bot for HipChat
+description:         Haskell bot for HipChat
 homepage:            https://github.com/purefn/hiplambda
 license:             BSD3
 license-file:        LICENSE

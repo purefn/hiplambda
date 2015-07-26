@@ -19,11 +19,11 @@ import HipBot.Webhooks
 
 import HipBot.HipLambda.Type
 
-hoogleResource :: (MonadIO m, MonadReader r m, HasHoogleDb r) => WaiResource m
+hoogleResource :: (Functor m, MonadIO m, MonadReader r m, HasHoogleDb r) => WaiResource m
 hoogleResource = roomMessageWebhookResource "hoogle" $ \_ ->
   lift . lift . views message (fmap Just . hoogle . T.strip . T.drop 7)
 
-hoogle :: (MonadReader r m, HasHoogleDb r) => Text -> m Notification
+hoogle :: (Functor m, MonadReader r m, HasHoogleDb r) => Text -> m Notification
 hoogle e = view hoogleDb <&> \db ->
   let
     q = Hoogle.parseQuery Haskell . T.unpack $ e
