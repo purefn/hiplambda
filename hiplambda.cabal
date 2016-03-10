@@ -34,9 +34,12 @@ executable hiplambda
   build-depends:       base >=4.7 && <5
                      , aeson
                      , bytestring
+                     , cabal-file-th
                      , exceptions
+                     , gitrev
                      , hipbot
-                     , hoogle >= 4.2 && <5
+                     , hoogle
+                     , http-types
                      , lens
                      , mtl
                      , mueval

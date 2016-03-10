@@ -29,6 +29,7 @@ import HipBot.HipLambda.Eval
 import HipBot.HipLambda.Hoogle
 import HipBot.HipLambda.Pointfree
 import HipBot.HipLambda.Type
+import HipBot.HipLambda.Healthcheck
 
 type HipLambdaCrank = WaiCrankT HipLambda
 
@@ -54,6 +55,8 @@ main = do
     , "hoogle" ==> hoogleResource
     , "pointfree" ==> pointfreeResource
     , "pointful" ==> pointfulResource
+    , "heartbeat" ==> heartbeatResource
+    , "version.json" ==> versionJson
     -- , "haddock" ==> haddockResource
     ]
 
@@ -70,7 +73,7 @@ lookupBaseUri = lookupEnv "BASE_URI"
 
 lookupPort :: IO Int
 lookupPort = lookupEnv "PORT"
-  <&> fromMaybe 8000 . (>>= readMay)
+  <&> fromMaybe 8080 . (>>= readMay)
 
 lookupDb :: IO B.ByteString
 lookupDb = lookupEnv "PG_DB_URL"
