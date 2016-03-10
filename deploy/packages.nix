@@ -187,11 +187,11 @@ with haskellPackages; [
   blaze-html
   blaze-markup
   blaze-textual
-  bloodhound
+  # bloodhound
   bloomfilter
   bmp
   bool-extras
-  boolsimplifier
+  # boolsimplifier
   bound
   broadcast-chan
   bson
@@ -211,7 +211,7 @@ with haskellPackages; [
   bzlib
   bzlib-conduit
   c2hs
-  cabal-debian
+  # cabal-debian
   cabal-file-th
   cabal-install
   cabal-rpm
@@ -483,7 +483,7 @@ with haskellPackages; [
   haskintex
   hasql
   hasql-backend
-  hasql-postgres
+  # hasql-postgres
   hastache
   haxr
   hdaemonize
@@ -515,7 +515,7 @@ with haskellPackages; [
   hmatrix
   hmatrix-gsl
   # hmatrix-gsl-stats -- fails to build
-  hmatrix-repa
+  # hmatrix-repa
   hoauth2
   holy-project
   hoogle
