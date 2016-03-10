@@ -70,11 +70,11 @@ lookupBaseUri = lookupEnv "BASE_URI"
 
 lookupPort :: IO Int
 lookupPort = lookupEnv "PORT"
-  <&> fromMaybe 8080 . (>>= readMay)
+  <&> fromMaybe 8000 . (>>= readMay)
 
 lookupDb :: IO B.ByteString
-lookupDb = lookupEnv "DATABASE_URL"
-  <&> maybe (error "DATABASE_URL environment variable required") B.fromString
+lookupDb = lookupEnv "PG_DB_URL"
+  <&> maybe (error "PG_DB_URL environment variable required") B.fromString
 
 lookupHoogle :: IO Hoogle.Database
 lookupHoogle = do
