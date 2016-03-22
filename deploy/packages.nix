@@ -4,135 +4,135 @@ with haskellPackages; [
   # additional packages (from stackage)
   AC-Vector
   BlastHTTP
-  BlogLiterately
-  BlogLiterately-diagrams
+  # BlogLiterately -- large
+  # BlogLiterately-diagrams -- large
   Boolean
   BoundedChan
   Cabal
-  Cabal-ide-backend
-  Chart
-  Chart-cairo
+  # Cabal-ide-backend -- large
+  # Chart -- large
+  # Chart-cairo -- large
   ChasingBottoms
   DAV
-  DRBG
+  # DRBG -- large
   Decimal
   Diff
   FenwickTree
-  FontyFruity
-  GLURaw
-  GLUT
+  # FontyFruity -- large
+  # GLURaw -- large
+  # GLUT -- large
   GenericPretty
   Glob
   GraphSCC
-  HCodecs
-  HList
+  # HCodecs -- large
+  # HList -- large
   HStringTemplate
-  HTF
+  # HTF -- large
   HTTP
   HUnit
-  HaTeX
-  HaXml
-  HandsomeSoup
-  HaskellNet
+  # HaTeX -- large
+  # HaXml -- large
+  # HandsomeSoup -- large
+  # HaskellNet -- large
   HsOpenSSL
   IfElse
-  JuicyPixels
+  # JuicyPixels -- large
   List
   ListLike
   MemoTrie
-  MissingH
+  # MissingH -- large
   MonadCatchIO-transformers
   MonadPrompt
   MonadRandom
   NumInstances
   ObjectName
   Octree
-  OpenGL
-  OpenGLRaw
+  # OpenGL -- large
+  # OpenGLRaw -- large
   PSQueue
   QuasiText
   QuickCheck
   RSA
-  Rasterific
+  # Rasterific -- large
   ReadArgs
   RefSerialize
   SHA
   SafeSemaphore
-  Spock
-  Spock-digestive
-  Spock-worker
+  # Spock -- large
+  # Spock-digestive -- large
+  # Spock-worker -- large
   StateVar
   TCache
-  Unixutils
+  # Unixutils -- large
   Workflow
-  X11
-  Yampa
-  YampaSynth
+  # X11 -- large
+  # Yampa -- large
+  # YampaSynth -- large
   abstract-deque
   abstract-par
-  accelerate
-  ace
+  # accelerate -- large
+  # ace -- large
   action-permutations
-  active
-  ad
+  # active -- large
+  # ad -- large
   adjunctions
   aeson
   aeson-better-errors
   aeson-pretty
   aeson-qq
-  aeson-schema
+  # aeson-schema -- large
   aeson-utils
-  agentx
+  # agentx -- large
   alarmclock
   alex
-  amazonka
-  amazonka-autoscaling
-  amazonka-cloudformation
-  amazonka-cloudfront
-  amazonka-cloudhsm
-  amazonka-cloudsearch
-  amazonka-cloudsearch-domains
-  amazonka-cloudtrail
-  amazonka-cloudwatch
-  amazonka-cloudwatch-logs
-  amazonka-codedeploy
-  amazonka-cognito-identity
-  amazonka-cognito-sync
-  amazonka-config
-  amazonka-core
-  amazonka-datapipeline
-  amazonka-directconnect
-  amazonka-dynamodb
-  amazonka-ec2
-  amazonka-ecs
-  amazonka-elasticache
-  amazonka-elasticbeanstalk
-  amazonka-elastictranscoder
-  amazonka-elb
-  amazonka-emr
-  amazonka-glacier
-  amazonka-iam
-  amazonka-importexport
-  amazonka-kinesis
-  amazonka-kms
-  amazonka-lambda
-  amazonka-ml
-  amazonka-opsworks
-  amazonka-rds
-  amazonka-redshift
-  amazonka-route53
-  amazonka-route53-domains
-  amazonka-s3
-  amazonka-sdb
-  amazonka-ses
-  amazonka-sns
-  amazonka-sqs
-  amazonka-ssm
-  amazonka-storagegateway
-  amazonka-sts
-  amazonka-support
-  amazonka-swf
-  amazonka-workspaces
+  # amazonka -- large
+  # amazonka-autoscaling -- large
+  # amazonka-cloudformation -- large
+  # amazonka-cloudfront -- large
+  # amazonka-cloudhsm -- large
+  # amazonka-cloudsearch -- large
+  # amazonka-cloudsearch-domains -- large
+  # amazonka-cloudtrail -- large
+  # amazonka-cloudwatch -- large
+  # amazonka-cloudwatch-logs -- large
+  # amazonka-codedeploy -- large
+  # amazonka-cognito-identity -- large
+  # amazonka-cognito-sync -- large
+  # amazonka-config -- large
+  # amazonka-core -- large
+  # amazonka-datapipeline -- large
+  # amazonka-directconnect -- large
+  # amazonka-dynamodb -- large
+  # amazonka-ec2 -- large
+  # amazonka-ecs -- large
+  # amazonka-elasticache -- large
+  # amazonka-elasticbeanstalk -- large
+  # amazonka-elastictranscoder -- large
+  # amazonka-elb -- large
+  # amazonka-emr -- large
+  # amazonka-glacier -- large
+  # amazonka-iam -- large
+  # amazonka-importexport -- large
+  # amazonka-kinesis -- large
+  # amazonka-kms -- large
+  # amazonka-lambda -- large
+  # amazonka-ml -- large
+  # amazonka-opsworks -- large
+  # amazonka-rds -- large
+  # amazonka-redshift -- large
+  # amazonka-route53 -- large
+  # amazonka-route53-domains -- large
+  # amazonka-s3 -- large
+  # amazonka-sdb -- large
+  # amazonka-ses -- large
+  # amazonka-sns -- large
+  # amazonka-sqs -- large
+  # amazonka-ssm -- large
+  # amazonka-storagegateway -- large
+  # amazonka-sts -- large
+  # amazonka-support -- large
+  # amazonka-swf -- large
+  # amazonka-workspaces -- large
   amqp
   annotated-wl-pprint
   ansi-terminal
@@ -140,9 +140,9 @@ with haskellPackages; [
   appar
   applicative-quoters
   approximate
-  arbtt
+  # arbtt -- large
   arrow-list
-  asciidiagram
+  # asciidiagram -- large
   asn1-encoding
   asn1-parse
   asn1-types
@@ -152,10 +152,10 @@ with haskellPackages; [
   attoparsec-expr
   authenticate
   authenticate-oauth
-  auto
+  # auto -- large
   auto-update
-  aws
-  bake
+  # aws -- large
+  # bake -- large
   bank-holidays-england
   base-compat
   base-orphans
@@ -187,15 +187,15 @@ with haskellPackages; [
   blaze-html
   blaze-markup
   blaze-textual
-  bloodhound
+  # bloodhound
   bloomfilter
   bmp
   bool-extras
-  boolsimplifier
+  # boolsimplifier
   bound
   broadcast-chan
   bson
-  btrfs
+  # btrfs -- large
   buffer-builder
   bumper
   byteable
@@ -210,17 +210,17 @@ with haskellPackages; [
   bytestring-trie
   bzlib
   bzlib-conduit
-  c2hs
-  cabal-debian
+  # c2hs -- large
+  # cabal-debian
   cabal-file-th
   cabal-install
   cabal-rpm
-  cabal-src
-  cairo
-  cartel
+  # cabal-src -- large
+  # cairo -- large
+  # cartel -- large
   case-insensitive
   cases
-  cassava
+  # cassava -- large
   cereal
   cereal-conduit
   cereal-vector
@@ -247,18 +247,18 @@ with haskellPackages; [
   classy-prelude
   classy-prelude-conduit
   classy-prelude-yesod
-  clay
+  # clay -- large
   clientsession
   clock
   cmark
   cmdargs
   code-builder
-  codex
+  # codex -- large
   colour
   comonad
   comonad-transformers
   comonads-fd
-  compdata
+  # compdata -- large
   composition
   composition-extra
   compressed
@@ -277,20 +277,20 @@ with haskellPackages; [
   control-bool
   control-monad-free
   control-monad-loop
-  convertible
+  # convertible -- large
   cookie
   country-codes
   courier
   cpphs
   cprng-aes
   cpu
-  cql
-  cql-io
+  # cql -- large
+  # cql-io -- large
   crackNum
-  criterion
+  # criterion -- large
   cron
   crypto-api
-  crypto-api-tests
+  # crypto-api-tests -- large
   crypto-cipher-tests
   crypto-cipher-types
   crypto-numbers
@@ -302,13 +302,13 @@ with haskellPackages; [
   cryptohash
   cryptohash-conduit
   cryptohash-cryptoapi
-  cryptol
+  # cryptol -- large
   cryptonite
   css-text
   csv
   csv-conduit
-  cubicspline
-  curl
+  # cubicspline -- large
+  # curl -- large
   data-accessor
   data-accessor-mtl
   data-binary-ieee754
@@ -324,26 +324,26 @@ with haskellPackages; [
   data-ordlist
   data-reify
   datadog
-  dbus
-  debian
+  # dbus -- large
+  # debian -- large
   deepseq-generics
-  derive
+  # derive -- large
   descriptive
-  diagrams
-  diagrams-builder
-  diagrams-cairo
-  diagrams-contrib
-  diagrams-core
-  diagrams-html5
-  diagrams-lib
-  diagrams-postscript
-  diagrams-rasterific
+  # diagrams -- large
+  # diagrams-builder -- large
+  # diagrams-cairo -- large
+  # diagrams-contrib -- large
+  # diagrams-core -- large
+  # diagrams-html5 -- large
+  # diagrams-lib -- large
+  # diagrams-postscript -- large
+  # diagrams-rasterific -- large
   diagrams-solve
-  diagrams-svg
+  # diagrams-svg -- large
   digest
   digestive-functors
-  dimensional
-  direct-sqlite
+  # dimensional -- large
+  # direct-sqlite -- large
   directory-tree
   disk-free-space
   distributive
@@ -356,7 +356,7 @@ with haskellPackages; [
   double-conversion
   dual-tree
   easy-file
-  ede
+  # ede -- large
   edit-distance
   editor-open
   effect-handlers
@@ -389,13 +389,13 @@ with haskellPackages; [
   fay-jquery
   fay-text
   fay-uri
-  fb
-  fb-persistent
+  # fb -- large
+  # fb-persistent -- large
   fclabels
-  fdo-notify
+  # fdo-notify -- large
   feature-flags
-  feed
-  fgl
+  # feed -- large
+  # fgl -- large
   file-embed
   file-location
   filemanip
@@ -410,7 +410,7 @@ with haskellPackages; [
   fmlist
   focus
   foldl
-  force-layout
+  # force-layout -- large
   foreign-store
   formatting
   free
@@ -421,74 +421,74 @@ with haskellPackages; [
   generic-aeson
   generic-deriving
   generic-xmlpickler
-  generics-sop
-  getopt-generics
-  ghc-events
+  # generics-sop -- large
+  # getopt-generics -- large
+  # ghc-events -- large
   ghc-mtl
   ghc-paths
   ghc-syb-utils
   ghc-tcplugins-extra
   ghc-typelits-natnormalise
   ghcid
-  gio
-  gipeda
-  git-annex
+  # gio -- large
+  # gipeda -- large
+  # git-annex -- large
   git-embed
   gitlib
-  gitlib-libgit2
+  # gitlib-libgit2 -- large
   gitlib-test
   gitrev
-  gl
-  glib
+  # gl -- large
+  # glib -- large
   gnuidn
-  gnutls
+  # gnutls -- large
   graph-core
   graph-wrapper
   graphs
   gravatar
-  groundhog
-  groundhog-mysql
-  groundhog-postgresql
-  groundhog-sqlite
-  groundhog-th
+  # groundhog -- large
+  # groundhog-mysql -- large
+  # groundhog-postgresql -- large
+  # groundhog-sqlite -- large
+  # groundhog-th -- large
   groupoids
   groups
   growler
-  gsasl
-  gtk
+  # gsasl -- large
+  # gtk -- large
   gtk2hs-buildtools
-  gtk3
-  hPDB
-  hPDB-examples
+  # gtk3 -- large
+  # hPDB -- large
+  # hPDB-examples -- large
   hackage-db
-  haddock-api
-  haddock-library
-  hakyll
+  # haddock-api -- large
+  # haddock-library -- large
+  # hakyll -- large
   half
   hamlet
-  happstack-server
+  # happstack-server -- large
   happy
   hashable
   hashable-extras
   hashmap
   hashtables
   haskeline
-  haskell-lexer
+  # haskell-lexer -- large
   # haskell-names -- tests fail to build
   haskell-packages
-  haskell-spacegoo
-  haskell-src
+  # haskell-spacegoo -- large
+  # haskell-src -- large
   haskell-src-exts
   haskell-src-meta
-  haskintex
-  hasql
+  # haskintex -- large
+  # hasql -- large
   hasql-backend
-  hasql-postgres
+  # hasql-postgres
   hastache
-  haxr
+  # haxr -- large
   hdaemonize
   hdevtools
-  hdocs
+  # hdocs -- large
   heap
   heaps
   hebrew-time
@@ -497,25 +497,25 @@ with haskellPackages; [
   here
   heredoc
   hex
-  hexpat
+  # hexpat -- large
   hexstring
   hflags
-  highlighting-kate
-  hindent
+  # highlighting-kate -- large
+  # hindent -- large
   hinotify
   hint
-  histogram-fill
-  hit
+  # histogram-fill -- large
+  # hit -- large
   hjsmin
-  hledger
-  hledger-lib
-  hledger-web
-  hlibgit2
-  hlint
-  hmatrix
-  hmatrix-gsl
+  # hledger -- large
+  # hledger-lib -- large
+  # hledger-web -- large
+  # hlibgit2 -- large
+  # hlint -- large
+  # hmatrix -- large
+  # hmatrix-gsl -- large
   # hmatrix-gsl-stats -- fails to build
-  hmatrix-repa
+  # hmatrix-repa
   hoauth2
   holy-project
   hoogle
@@ -523,10 +523,10 @@ with haskellPackages; [
   hostname-validate
   hourglass
   # hpc-coveralls -- linker failure
-  hs-bibutils
+  # hs-bibutils -- large
   hscolour
   hse-cpp
-  hsemail
+  # hsemail -- large
   # hsignal -- depends on hmatrix-gsl-stats
   hslogger
   hslua
@@ -557,24 +557,24 @@ with haskellPackages; [
   http-streams
   http-types
   http2
-  hweblib
+  # hweblib -- large
   hxt
   hxt-charproperties
   hxt-css
-  hxt-curl
-  hxt-expat
+  # hxt-curl -- large
+  # hxt-expat -- large
   hxt-http
   hxt-pickle-utils
   hxt-regex-xmlschema
-  hxt-relaxng
+  # hxt-relaxng -- large
   hxt-tagsoup
   hxt-unicode
   # hyperloglog -- fails to build
   hyphenation
-  ide-backend
-  ide-backend-common
+  # ide-backend -- large
+  # ide-backend-common -- large
   ide-backend-rts
-  ide-backend-server
+  # ide-backend-server -- large
   ieee754
   imagesize-conduit
   immortal
@@ -593,10 +593,10 @@ with haskellPackages; [
   iproute
   islink
   iterable
-  jmacro
-  jmacro-rpc
-  jmacro-rpc-happstack
-  jmacro-rpc-snap
+  # jmacro -- large
+  # jmacro-rpc -- large
+  # jmacro-rpc-happstack -- large
+  # jmacro-rpc-snap -- large
   jose-jwt
   js-flot
   js-jquery
@@ -607,17 +607,17 @@ with haskellPackages; [
   jwt
   kan-extensions
   kdt
-  keter
+  # keter -- large
   keys
   kmeans
   koofr-client
   kure
-  language-c
-  language-c-quote
+  # language-c -- large
+  # language-c-quote -- large
   language-ecmascript
-  language-glsl
+  # language-glsl -- large
   language-haskell-extract
-  language-java
+  # language-java -- large
   language-javascript
   largeword
   lattices
@@ -633,13 +633,13 @@ with haskellPackages; [
   lexer-applicative
   lhs2tex
   libgit
-  libnotify
+  # libnotify -- large
   librato
   libxml-sax
   lifted-async
   lifted-base
-  linear
-  linear-accelerate
+  # linear -- large
+  # linear-accelerate -- large
   linux-file-extents
   linux-namespaces
   list-fusion-probe
@@ -659,12 +659,12 @@ with haskellPackages; [
   machines-process
   mainland-pretty
   managed
-  mandrill
+  # mandrill -- large
   # mangopay
   map-syntax
   markdown
   markdown-unlit
-  markup
+  # markup -- large
   math-functions
   matrix
   maximal-cliques
@@ -702,7 +702,7 @@ with haskellPackages; [
   monadcryptorandom
   monadic-arrays
   monads-tf
-  mongoDB
+  # mongoDB -- large
   mono-traversable
   monoid-extras
   monoid-subclasses
@@ -715,13 +715,13 @@ with haskellPackages; [
   multipart
   mutable-containers
   mwc-random
-  mysql
-  mysql-simple
+  # mysql -- large
+  # mysql-simple -- large
   nanospec
   nats
   ndjson-conduit
   neat-interpolation
-  nested-routes
+  # nested-routes -- large
   netwire
   network
   # network-anonymous-i2p -- tests fail
@@ -731,35 +731,35 @@ with haskellPackages; [
   network-conduit-tls
   network-info
   network-multicast
-  network-protocol-xmpp
+  # network-protocol-xmpp -- large
   network-simple
   network-transport
   network-uri
   newtype
   newtype-generics
   nonce
-  nsis
+  # nsis -- large
   numbers
   numeric-extras
   numtype
   objective
   old-locale
   old-time
-  opaleye
+  # opaleye -- large
   openpgp-asciiarmor
   openssl-streams
   operational
   options
   optparse-applicative
   optparse-simple
-  osdkeys
+  # osdkeys -- large
   pager
-  pagerduty
-  palette
-  pandoc
-  pandoc-citeproc
-  pandoc-types
-  pango
+  # pagerduty -- large
+  # palette -- large
+  # pandoc -- large
+  # pandoc-citeproc -- large
+  # pandoc-types -- large
+  # pango -- large
   parallel
   parallel-io
   parseargs
@@ -771,11 +771,11 @@ with haskellPackages; [
   patience
   pcre-heavy
   pcre-light
-  pdfinfo
+  # pdfinfo -- large
   pem
   persistent
-  persistent-mongoDB
-  persistent-mysql
+  # persistent-mongoDB -- large
+  # persistent-mysql --large
   persistent-postgresql
   persistent-refs
   persistent-sqlite
@@ -796,24 +796,24 @@ with haskellPackages; [
   pipes-text
   pipes-wai
   placeholders
-  plot
-  plot-gtk
-  plot-gtk3
+  # plot -- large
+  # plot-gtk -- large
+  # plot-gtk3 -- large
   pointed
-  poly-arity
+  # poly-arity
   polyparse
   posix-realtime
   post-mess-age
   postgresql-binary
   postgresql-libpq
   postgresql-simple
-  pred-trie
+  # pred-trie -- large
   prednote
   prefix-units
   prelude-extras
   presburger
   pretty-class
-  pretty-show
+  # pretty-show -- large
   prettyclass
   primes
   primitive
@@ -833,13 +833,13 @@ with haskellPackages; [
   quickcheck-unicode
   rainbow
   random
-  random-fu
+  # random-fu -- large
   random-shuffle
   random-source
-  rasterific-svg
+  # rasterific-svg -- large
   raw-strings-qq
-  redis-io
-  redis-resp
+  # redis-io -- large
+  # redis-resp -- large
   reducers
   ref-fd
   reflection
@@ -849,38 +849,38 @@ with haskellPackages; [
   regex-pcre
   regex-pcre-builtin
   regex-posix
-  regex-tdfa
+  # regex-tdfa -- large
   regex-tdfa-rc
   regexpr
-  repa
-  repa-algorithms
-  repa-devil
-  repa-io
+  # repa -- large
+  # repa-algorithms -- large
+  # repa-devil -- large
+  # repa-io -- large
   reroute
   resource-pool
   resourcet
-  rest-client
-  rest-core
-  rest-gen
-  rest-happstack
-  rest-snap
+  # rest-client -- large
+  # rest-core -- large
+  # rest-gen -- large
+  # rest-happstack -- large
+  # rest-snap -- large
   rest-stringmap
-  rest-types
-  rest-wai
+  # rest-types -- large
+  # rest-wai -- large
   # rethinkdb-client-driver -- tests fail
   retry
   rev-state
-  rfc5051
+  # rfc5051 -- large
   runmemo
   rvar
   safe
   safecopy
   sandi
-  sbv
-  scalpel
+  # sbv -- large
+  # scalpel -- large
   scientific
   scotty
-  sdl2
+  # sdl2 -- large
   # second-transfer -- linker failure
   securemem
   semigroupoid-extras
@@ -900,12 +900,12 @@ with haskellPackages; [
   setenv
   setlocale
   shake
-  shake-language-c
+  # shake-language-c -- large
   shakespeare
   shakespeare-text
   shell-conduit
-  shelltestrunner
-  shelly
+  # shelltestrunner -- large
+  # shelly -- large
   silently
   simple-reflect
   simple-sendfile
@@ -914,8 +914,8 @@ with haskellPackages; [
   skein
   slave-thread
   smallcheck
-  smoothie
-  smtLib
+  # smoothie -- large
+  # smtLib -- large
   snap
   snap-core
   snap-server
@@ -927,11 +927,11 @@ with haskellPackages; [
   sodium
   sourcemap
   speculation
-  sphinx
+  # sphinx -- large
   splice
   split
   spoon
-  sqlite-simple
+  # sqlite-simple -- large
   srcloc
   stackage
   stackage-build-plan
@@ -947,8 +947,8 @@ with haskellPackages; [
   stateref
   statestack
   static-canvas
-  statistics
-  statistics-linreg
+  # statistics -- large
+  # statistics-linreg -- large
   stm
   stm-chans
   stm-conduit
@@ -964,7 +964,7 @@ with haskellPackages; [
   stringbuilder
   stringsearch
   stylish-haskell
-  svg-tree
+  # svg-tree -- large
   swagger
   syb
   symbol
@@ -987,7 +987,7 @@ with haskellPackages; [
   tasty-kat
   tasty-quickcheck
   tasty-rerun
-  tasty-silver
+  # tasty-silver -- large
   tasty-smallcheck
   tasty-th
   temporary
@@ -1000,14 +1000,14 @@ with haskellPackages; [
   test-framework-quickcheck2
   test-framework-th
   testing-feat
-  texmath
+  # texmath -- large
   text
   text-binary
   text-format
-  text-icu
+  # text-icu -- large
   text-manipulate
   tf-random
-  th-desugar
+  # th-desugar -- large
   th-expand-syns
   th-extras
   th-lift
@@ -1032,12 +1032,12 @@ with haskellPackages; [
   traverse-with-class
   tree-view
   trifecta
-  tttool
-  tuples-homogenous-h98
+  # tttool -- large
+  # tuples-homogenous-h98 -- large
   turtle
   type-eq
   # type-list -- depends on singletons
-  unbound-generics
+  # unbound-generics -- large
   unbounded-delays
   union-find
   uniplate
@@ -1055,7 +1055,7 @@ with haskellPackages; [
   utf8-light
   utf8-string
   uu-interleaved
-  uu-parsinglib
+  # uu-parsinglib -- large
   uuid
   uuid-types
   vault
@@ -1089,7 +1089,7 @@ with haskellPackages; [
   # waitra -- test fail
   warp
   warp-tls
-  web-fpco
+  # web-fpco -- large
   webpage
   websockets
   witherable
@@ -1099,7 +1099,7 @@ with haskellPackages; [
   wl-pprint-terminfo
   wl-pprint-text
   word8
-  wordpass
+  # wordpass -- large
   wrap
   wreq
   x509
@@ -1112,7 +1112,7 @@ with haskellPackages; [
   xml-conduit
   xml-hamlet
   xml-lens
-  xml-to-json
+  # xml-to-json -- large
   xml-to-json-fast
   xml-types
   xmlgen
@@ -1123,7 +1123,7 @@ with haskellPackages; [
   yesod
   yesod-auth
   yesod-auth-deskcom
-  yesod-auth-fb
+  # yesod-auth-fb -- large
   yesod-auth-hashdb
   yesod-auth-oauth
   yesod-auth-oauth2
@@ -1132,7 +1132,7 @@ with haskellPackages; [
   yesod-default
   # yesod-eventsource -- depends on wai-eventsource
   yesod-fay
-  yesod-fb
+  # yesod-fb -- large
   yesod-form
   yesod-gitrepo
   yesod-gitrev

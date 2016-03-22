@@ -29,6 +29,7 @@ import HipBot.HipLambda.Eval
 import HipBot.HipLambda.Hoogle
 import HipBot.HipLambda.Pointfree
 import HipBot.HipLambda.Type
+import HipBot.HipLambda.Healthcheck
 
 type HipLambdaCrank = WaiCrankT HipLambda
 
@@ -54,6 +55,8 @@ main = do
     , "hoogle" ==> hoogleResource
     , "pointfree" ==> pointfreeResource
     , "pointful" ==> pointfulResource
+    , "heartbeat" ==> heartbeatResource
+    , "version.json" ==> versionJson
     -- , "haddock" ==> haddockResource
     ]
 
@@ -73,8 +76,8 @@ lookupPort = lookupEnv "PORT"
   <&> fromMaybe 8080 . (>>= readMay)
 
 lookupDb :: IO B.ByteString
-lookupDb = lookupEnv "DATABASE_URL"
-  <&> maybe (error "DATABASE_URL environment variable required") B.fromString
+lookupDb = lookupEnv "PG_DB_URL"
+  <&> maybe (error "PG_DB_URL environment variable required") B.fromString
 
 lookupHoogle :: IO Hoogle.Database
 lookupHoogle = do

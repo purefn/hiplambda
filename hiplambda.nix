@@ -1,7 +1,8 @@
-{ mkDerivation, aeson, base, bytestring, hipbot, hoogle, lens, mtl
-, mueval, pointfree, pointful, postgresql-simple, process-extras
-, resource-pool, safe, stdenv, text, transformers, utf8-string, wai
-, wai-extra, wai-lens, warp, webcrank, webcrank-wai
+{ mkDerivation, aeson, base, bytestring, cabal-file-th, exceptions
+, gitrev, hipbot, hoogle, http-types, lens, mtl, mueval, pointfree
+, pointful, postgresql-simple, process-extras, resource-pool, safe
+, stdenv, text, transformers, utf8-string, wai, wai-extra, wai-lens
+, warp, webcrank, webcrank-wai
 }:
 mkDerivation {
   pname = "hiplambda";
@@ -9,11 +10,11 @@ mkDerivation {
   src = builtins.filterSource (path: type: baseNameOf path != ".git" && baseNameOf path != "dist" && baseNameOf path != "deploy") ./.;
   isLibrary = false;
   isExecutable = true;
-  buildDepends = [
-    aeson base bytestring hipbot hoogle lens mtl mueval pointfree
-    pointful postgresql-simple process-extras resource-pool safe text
-    transformers utf8-string wai wai-extra wai-lens warp webcrank
-    webcrank-wai
+  executableHaskellDepends = [
+    aeson base bytestring cabal-file-th exceptions gitrev hipbot hoogle
+    http-types lens mtl mueval pointfree pointful postgresql-simple
+    process-extras resource-pool safe text transformers utf8-string wai
+    wai-extra wai-lens warp webcrank webcrank-wai
   ];
   homepage = "https://github.com/purefn/hiplambda";
   description = "Haskell bot for HipChat";
