@@ -475,7 +475,7 @@ with haskellPackages; [
   haskeline
   # haskell-lexer -- large
   # haskell-names -- tests fail to build
-  haskell-packages
+  # haskell-packages -- fails to build https://github.com/haskell-suite/haskell-packages/issues/23
   # haskell-spacegoo -- large
   # haskell-src -- large
   haskell-src-exts

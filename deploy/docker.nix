@@ -3,11 +3,7 @@
 # $ docker load -i result
 # $ docker run hiplambda
 
-with import ((import <nixpkgs> { }).fetchgit {
-  url = "https://github.com/puffnfresh/nixpkgs.git";
-  rev = "b2e431b49e25c69c7cb68dce79d18416329b7c47";
-  sha256 = "0a45i9nfv2h9i4graqvam49d7w86gl3by2c1srqr2ab9dl0d6qsn";
-}) { };
+with import <nixpkgs> { };
 
 let
   hpkgs = pkgs.haskell.packages.ghc7103.override {
@@ -34,7 +30,8 @@ let
       fromImage = dockerTools.pullImage {
         imageName = "alpine";
         imageTag = "3.3";
-        sha256 = "0jnwabyfgy3smf3r0hgz1hipjvjaka6asj6byc5acg7rnmx828xh";
+        imageId = "f58d61a874bedb7cdcb5a409ebb0c53b0656b880695c14e78a69902873358d5f";
+        sha256 = "0lvd5zxjgwp3jl5r8qgb2kapmxclpgdv1a7c03yiagxsil5gwb8c";
       };
     };
   };
