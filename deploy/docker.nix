@@ -6,10 +6,8 @@
 with import <nixpkgs> { };
 
 let
-  hpkgs = pkgs.haskell.packages.lts.override {
+  hpkgs = haskellPackages.override {
     overrides = self: super: {
-      HUnit = self.callHackage "HUnit" "1.2.5.2" { };
-      hint = self.callHackage "hint" "0.4.3" { };
       hipbot = self.callPackage ../hipbot.nix { };
       hiplambda = self.callPackage ../hiplambda.nix { };
     };
