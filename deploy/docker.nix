@@ -1,28 +1,20 @@
 # Build steps:
-# $ nix-build deploy/docker.nix
+# $ nix-build docker.nix
 # $ docker load -i result
 # $ docker run hiplambda
 
-with import ((import <nixpkgs> { }).fetchgit {
-  url = "https://github.com/puffnfresh/nixpkgs.git";
-  rev = "b2e431b49e25c69c7cb68dce79d18416329b7c47";
-  sha256 = "0a45i9nfv2h9i4graqvam49d7w86gl3by2c1srqr2ab9dl0d6qsn";
-}) { };
+with import <nixpkgs> { };
 
 let
-  hpkgs = pkgs.haskell.packages.ghc7103.override {
+  hpkgs = haskellPackages.override {
     overrides = self: super: {
       hipbot = self.callPackage ../hipbot.nix { };
       hiplambda = self.callPackage ../hiplambda.nix { };
     };
   };
   packages = import ./packages.nix { haskellPackages = hpkgs; };
-  localHoogle = import ./hoogle.nix {
-    inherit (pkgs) stdenv;
-    inherit (hpkgs) hoogle rehoo ghc;
-    inherit packages;
-  };
-  mueval = hpkgs.ghcWithPackages (p: [ p.mueval ] ++ packages );
+  localHoogle = hpkgs.callPackage <nixpkgs/pkgs/development/haskell-modules/hoogle.nix> { inherit packages; };
+  mueval = hpkgs.ghcWithPackages (p: [ p.mueval ] ++ packages);
   alpine = dockerTools.buildImage {
     name = "alpine";
     contents = cacert;
@@ -34,7 +26,8 @@ let
       fromImage = dockerTools.pullImage {
         imageName = "alpine";
         imageTag = "3.3";
-        sha256 = "0jnwabyfgy3smf3r0hgz1hipjvjaka6asj6byc5acg7rnmx828xh";
+        imageId = "f58d61a874bedb7cdcb5a409ebb0c53b0656b880695c14e78a69902873358d5f";
+        sha256 = "0lvd5zxjgwp3jl5r8qgb2kapmxclpgdv1a7c03yiagxsil5gwb8c";
       };
     };
   };
@@ -47,7 +40,7 @@ dockerTools.buildImage {
   config = {
     Cmd = [ "/bin/hiplambda" ];
     Env = [
-      "HOOGLE_DB=${localHoogle}/share/hoogle/default.hoo"
+      "HOOGLE_DB=${localHoogle}/share/doc/hoogle/default.hoo"
       "MUEVAL_TIMEOUT=8"
       "NIX_GHC_LIBDIR=${mueval}/lib/ghc-7.10.3"
       "PATH=${mueval}/bin"

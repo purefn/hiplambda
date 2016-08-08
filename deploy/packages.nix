@@ -271,7 +271,7 @@ with haskellPackages; [
   configurator
   connection
   constraints
-  # consul-haskell -- tests fail
+  consul-haskell
   containers-unicode-symbols
   contravariant
   control-bool
@@ -279,7 +279,7 @@ with haskellPackages; [
   control-monad-loop
   # convertible -- large
   cookie
-  country-codes
+  # country-codes -- fails to build
   courier
   cpphs
   cprng-aes
@@ -474,8 +474,8 @@ with haskellPackages; [
   hashtables
   haskeline
   # haskell-lexer -- large
-  # haskell-names -- tests fail to build
-  haskell-packages
+  # haskell-packages -- fails to build https://github.com/haskell-suite/haskell-packages/issues/23
+  # haskell-names -- tests fail
   # haskell-spacegoo -- large
   # haskell-src -- large
   haskell-src-exts
@@ -516,13 +516,13 @@ with haskellPackages; [
   # hmatrix-gsl -- large
   # hmatrix-gsl-stats -- fails to build
   # hmatrix-repa
-  hoauth2
+  # hoauth2 -- fails to build
   holy-project
   hoogle
   hostname
   hostname-validate
   hourglass
-  # hpc-coveralls -- linker failure
+  hpc-coveralls
   # hs-bibutils -- large
   hscolour
   hse-cpp
@@ -569,7 +569,7 @@ with haskellPackages; [
   # hxt-relaxng -- large
   hxt-tagsoup
   hxt-unicode
-  # hyperloglog -- fails to build
+  hyperloglog
   hyphenation
   # ide-backend -- large
   # ide-backend-common -- large
@@ -578,7 +578,7 @@ with haskellPackages; [
   ieee754
   imagesize-conduit
   immortal
-  # include-file -- fails to build
+  include-file
   incremental-parser
   indents
   ini
@@ -634,7 +634,7 @@ with haskellPackages; [
   lhs2tex
   libgit
   # libnotify -- large
-  librato
+  # librato -- depends on uri-templater
   libxml-sax
   lifted-async
   lifted-base
@@ -724,7 +724,7 @@ with haskellPackages; [
   # nested-routes -- large
   netwire
   network
-  # network-anonymous-i2p -- tests fail
+  network-anonymous-i2p
   network-anonymous-tor
   network-attoparsec
   network-conduit
@@ -781,7 +781,7 @@ with haskellPackages; [
   persistent-sqlite
   persistent-template
   phantom-state
-  picoparsec
+  # picoparsec -- depends on incremental-parser
   pipes
   pipes-aeson
   pipes-attoparsec
@@ -819,7 +819,7 @@ with haskellPackages; [
   primitive
   process-extras
   product-profunctors
-  # profunctor-extras -- fails to build
+  profunctor-extras
   profunctors
   project-template
   psqueues
@@ -867,7 +867,7 @@ with haskellPackages; [
   rest-stringmap
   # rest-types -- large
   # rest-wai -- large
-  # rethinkdb-client-driver -- tests fail
+  rethinkdb-client-driver
   retry
   rev-state
   # rfc5051 -- large
@@ -893,7 +893,7 @@ with haskellPackages; [
   servant
   servant-client
   servant-docs
-  servant-jquery
+  # servant-jquery -- fails  to build
   servant-server
   set-extra
   set-monad
@@ -909,7 +909,7 @@ with haskellPackages; [
   silently
   simple-reflect
   simple-sendfile
-  # singletons -- broken on 7.10.1, needs 7.10.2 when it is released
+  singletons
   siphash
   skein
   slave-thread
@@ -1016,7 +1016,7 @@ with haskellPackages; [
   threads
   through-text
   thumbnail-plus
-  # thyme -- building tests fails
+  thyme
   time-compat
   time-lens
   time-locale-compat
@@ -1046,7 +1046,7 @@ with haskellPackages; [
   unordered-containers
   uri-bytestring
   uri-encode
-  uri-templater
+  # uri-templater -- fails to build https://github.com/iand675/uri-templater/pull/3
   url
   urlpath
   users
@@ -1072,18 +1072,18 @@ with haskellPackages; [
   wai
   wai-app-static
   wai-conduit
-  # wai-cors -- tests fail
-  # wai-eventsource -- fails to build
+  wai-cors
+  wai-eventsource
   wai-extra
   wai-handler-launch
   wai-logger
   # wai-middleware-consul
   wai-middleware-crowd
   wai-middleware-static
-  # wai-predicates -- depends on singletons
+  wai-predicates
   wai-route
   wai-routes
-  # wai-routing -- depends on singletons
+  wai-routing
   wai-util
   wai-websockets
   # waitra -- test fail
@@ -1126,7 +1126,7 @@ with haskellPackages; [
   # yesod-auth-fb -- large
   yesod-auth-hashdb
   yesod-auth-oauth
-  yesod-auth-oauth2
+  # yesod-auth-oauth2 -- depends on hoauth2
   yesod-bin
   yesod-core
   yesod-default
@@ -1144,7 +1144,7 @@ with haskellPackages; [
   yesod-test
   yesod-text-markdown
   yesod-websockets
-  # zeromq4-haskell -- zeromq fails to build
+  zeromq4-haskell
   zip-archive
   zlib
   zlib-bindings
