@@ -1,24 +1,22 @@
 # Build steps:
-# $ nix-build deploy/docker.nix
+# $ nix-build docker.nix
 # $ docker load -i result
 # $ docker run hiplambda
 
 with import <nixpkgs> { };
 
 let
-  hpkgs = pkgs.haskell.packages.ghc7103.override {
+  hpkgs = pkgs.haskell.packages.lts.override {
     overrides = self: super: {
+      HUnit = self.callHackage "HUnit" "1.2.5.2" { };
+      hint = self.callHackage "hint" "0.4.3" { };
       hipbot = self.callPackage ../hipbot.nix { };
       hiplambda = self.callPackage ../hiplambda.nix { };
     };
   };
   packages = import ./packages.nix { haskellPackages = hpkgs; };
-  localHoogle = import ./hoogle.nix {
-    inherit (pkgs) stdenv;
-    inherit (hpkgs) hoogle rehoo ghc;
-    inherit packages;
-  };
-  mueval = hpkgs.ghcWithPackages (p: [ p.mueval ] ++ packages );
+  localHoogle = hpkgs.callPackage <nixpkgs/pkgs/development/haskell-modules/hoogle.nix> { inherit packages; };
+  mueval = hpkgs.ghcWithPackages (p: [ p.mueval ] ++ packages);
   alpine = dockerTools.buildImage {
     name = "alpine";
     contents = cacert;
@@ -44,7 +42,7 @@ dockerTools.buildImage {
   config = {
     Cmd = [ "/bin/hiplambda" ];
     Env = [
-      "HOOGLE_DB=${localHoogle}/share/hoogle/default.hoo"
+      "HOOGLE_DB=${localHoogle}/share/doc/hoogle/default.hoo"
       "MUEVAL_TIMEOUT=8"
       "NIX_GHC_LIBDIR=${mueval}/lib/ghc-7.10.3"
       "PATH=${mueval}/bin"

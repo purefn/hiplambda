@@ -10,8 +10,8 @@ mkDerivation {
   version = "0.6";
   src = fetchgit {
     url = "https://github.com/purefn/hipbot.git";
-    sha256 = "729f48a9b99fd6a0205722b20e7d3e2164b4b5fd5563361ef3de8d555936170d";
-    rev = "9330c39a943c528ef6e4ec88324bf1d6634d2215";
+    sha256 = "10m1rnas92y0ykfrn75j9h6yl6gjsh7zjl4fmy6y9xxxyw4cynw7";
+    rev = "a553a25e2aaf6ec2f1751b20cd40cbee839fb620";
   };
   libraryHaskellDepends = [
     aeson base bifunctors blaze-builder bytestring either exceptions
